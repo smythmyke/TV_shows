@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <div id="top_row">
+        <h1>Edit Your Show</h1>
+        <a href="/">Go Back</a>
+    </div>
+    <div id="bottom_row">
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        <form action="/shows/{{one_show.id}}/update" method="post">
+            {% csrf_token %}
+            <label for="title">Title</label>
+            <input name="title" type="text">
+            <label for="network">Network</label>
+            <input name="network" type="network">
+            <label for="release_date">Release Date</label>
+            <input name="release_date" type="date">
+            <label for="description">Description</label>
+            <input name="description" type="text">
+            <input value="update" name="update" type="submit">
+        </form>
+
+        <a href='/shows/{{one_show.id}}'>Go To Show</a>
+        <a href="/shows/all_shows">All Shows</a>
+    </div>
+</body>
+
+</html>

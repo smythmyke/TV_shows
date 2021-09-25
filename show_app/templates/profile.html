@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show Profile</title>
+</head>
+<body>
+    <div class="container">
+        <h1>
+            TV Show {{one_show.id}}
+
+        </h1>
+        <ul>
+            <li>
+                Title: {{one_show.title}}
+            </li>
+            <li>
+                Network: {{one_show.network}}
+            </li>
+            <li>
+                Release Date: {{one_show.release_date}}
+            </li>
+            <li>
+                Description: {{one_show.description}}
+            </li>
+        </ul>
+
+        <h4> Last Updated: {{one_show.updated_at}}</h4>
+        <a href='{{one_show.id}}/edit'>Edit</a> | <a href='{{one_show.id}}/delete'>Delete</a> | <a href="/shows/all_shows">All Shows</a>
+    </div>
+</body>
+</html>
